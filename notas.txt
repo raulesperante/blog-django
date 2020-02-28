@@ -1,0 +1,49 @@
+
+Crear virtualenv
+python3 -m venv myvenv
+
+requirements.txt Django~=2.2.4
+
+pip install -r requirements.txt
+
+Crear proyecto Django
+django-admin stratproject mysite .
+
+Configurar setting.py
+
+Crear base de datos
+python manage.py migrate
+
+Crear una aplicación
+python manage.py startapp blog
+
+Declararlo en setting.py
+INSTALLED_APP = [
+...
+'blog.apps.BlogConfig',
+
+]
+
+Crear un modelo en models.py
+
+Crear nueva migracion para avisarle a Django
+que hicimos cambios en nuestro modelo
+
+python manage.py makemigrations blog
+
+Correr la migracion para blog
+python manage.py migrate blog
+
+
+Como phpmyadmin
+
+en blog/admin.py
+
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+
+Craer superusuario
+
+python manage.py createsuperuser
